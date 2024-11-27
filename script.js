@@ -10,5 +10,10 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-
 console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let humanChoice = prompt("Choose your fighter: rock, paper, or scissors");
+    return humanChoice.toLowerCase();
+}
+console.log(getHumanChoice());
