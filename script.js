@@ -22,38 +22,80 @@ function getHumanChoice() {
     //console.log(humanChoice);
 }
 
-humanScore = 0;
-computerScore = 0;
-
-//logic for each round
-function playRound() {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    console.log(humanSelection);
-    console.log(computerSelection);
-    if (humanSelection === "rock" && computerSelection === "scissors") {
-        humanScore++;
-        return "You win! Rock beats scissors";
-    } else if  (humanSelection === "rock" && computerSelection === "paper") {
-        computerScore++;
-        return "You lose! Paper beats rock";
-    } else if (humanSelection === "paper" && computerSelection === "scissors") {
-        computerScore++;
-        return "You lose! Scissors beats paper";
-    } else if (humanSelection === "paper" && computerSelection === "rock") {
-        humanScore++;
-        return "You win! Paper beats rock";
-    } else if (humanSelection === "scissors" && computerSelection === "rock") {
-        computerScore++;
-        return "You lose! Rock beats scissors";
-    } else if (humanSelection === "scissors" && computerSelection === "paper") {
-        humanScore++;
-        return "You win! Scissors beats paper";
-    } else if (humanSelection === computerSelection) {
-        return "It's a tie! Please try again";
+function playGame() {
+    humanScore = 0;
+    computerScore = 0;
+    function playRound() {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(humanSelection);
+        console.log(computerSelection);
+        if (humanSelection === "rock" && computerSelection === "scissors") {
+            humanScore++;
+            return `You win!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if  (humanSelection === "rock" && computerSelection === "paper") {
+            computerScore++;
+            return `You lose!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if (humanSelection === "paper" && computerSelection === "scissors") {
+            computerScore++;
+            return `You lose!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if (humanSelection === "paper" && computerSelection === "rock") {
+            humanScore++;
+            return `You win!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if (humanSelection === "scissors" && computerSelection === "rock") {
+            computerScore++;
+            return `You lose!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if (humanSelection === "scissors" && computerSelection === "paper") {
+            humanScore++;
+            return `You win!
+            You chose ${humanSelection}.
+            Computer chose ${computerSelection}.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        } else if (humanSelection === computerSelection) {
+            return `It's a tie! Please try again.
+            Computer score: ${computerScore} | Human Score: ${humanScore}`;
+        }
     }
+    alert(playRound());
+    alert(playRound());
+    alert(playRound());
+    alert(playRound());
+    alert(playRound());
+    
+    function displayResult () {
+        if (humanScore > computerScore) {
+            return `Congratulations! You win!
+            Final score: 
+            Computer: ${computerScore}
+            Your score: ${humanScore}`
+        } else if (computerScore > humanScore) {
+            return `Ouch! You lost.
+            Final Score:
+            Computer: ${computerScore}
+            Your score: ${humanScore}`
+        } else if (computerScore === humanScore) {
+            return `It's a draw. Please play again.
+            Final Score:
+            Computer: ${computerScore}
+            Your score: ${humanScore}`
+        }
+    }
+    alert(displayResult());
 }
 
-console.log(playRound());
-console.log(humanScore);
-console.log(computerScore);
+playGame();
